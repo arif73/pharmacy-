@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role','photo',
     ];
 
     /**
@@ -27,4 +27,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function isAdmin (){
+          if ($this->role=='admin') {
+              return true;
+          }
+          return false;
+    }
+    public function isManager (){
+          if ($this->role=='manager') {
+              return true;
+          }
+          return false;
+    }
+    public function isSalesman (){
+          if ($this->role=='salesman') {
+              return true;
+          }
+          return false;
+    }
+
 }

@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/','LoginController@index');
+Route::post('/login',[
+	'uses'=>'LoginController@authenticate',
+	'as'=>'login'
+]);
+
+
+
+Route::post('/store',[
+  'uses'=>'LoginController@store',
+  'as'=>'store'
+]);
+
+Route::get('/dataentry',function(){
+	return view('dataEntryTest');
 });
